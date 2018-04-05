@@ -1,3 +1,3 @@
 # ExpressSelasa
 
-> This is ExpressSelasa Repositoris for Purwadhika Tuesday & Thursday.
+> This is ExpressSelasa Repository for Purwadhika Tuesday & Thursday.
