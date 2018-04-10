@@ -1,5 +1,6 @@
-// Add database 
-require('./config/db')
+// Add database
+// require('./config/db')
+require('./config/dbMySql')
 
 // calling library
 const express = require('express')
@@ -8,7 +9,11 @@ const bodyParser = require('body-parser')
 
 // we use express
 const app = express()
-const router = require('./config/routes')
+
+// router mongodb
+// const router = require('./config/routes')
+// router for mysql
+const router = require('./config/routesSql')
 
 // Define port to 3000 as example to run
 app.set('port', 3000)

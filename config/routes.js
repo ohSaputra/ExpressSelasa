@@ -26,7 +26,7 @@ router
 router
   .route('/salaries')
   .get((req, res) => res.json({ data: 'Hello this is salaries' }))
-   
+
 router
   .get('/:id/:name', ctrlUser.getUserByID)
 
