@@ -1,5 +1,6 @@
 // Call the Libraries
 const Sequelize = require('sequelize')
+const path = require('path')
 
 const DATABASE = 'employees'
 const USERNAME = 'root'
@@ -17,4 +18,13 @@ sequelize
   })
   .catch(err => console.error(err))
 
-module.exports = sequelize
+// IMPORT YOUR SCHEMA HERE
+const db = {
+  Employee: sequelize.import(path.join(__dirname, '../app/models/myEmployee.model')),
+
+  // Export Database itself
+  sequelize,
+  Sequelize,
+}
+
+module.exports = db
