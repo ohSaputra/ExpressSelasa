@@ -1,7 +1,8 @@
 const db = require('../../config/dbMySql')
+const { Employee } = db
 
 const getEmployee = (req, res) =>
-  db.Employee
+  Employee
     .findAll({
       limit: 10
     })
@@ -22,7 +23,7 @@ const getEmployee = (req, res) =>
 const deleteEmployee = (req, res) => {
   const { id } = req.params
 
-  return db.Employee
+  return Employee
     .destroy({
       where: { emp_no: id }
     })
