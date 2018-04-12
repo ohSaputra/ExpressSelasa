@@ -18,6 +18,23 @@ const getEmployee = (req, res) =>
           .json({ message: 'Data not found.' })
     })
 
+// delete employee
+const deleteEmployee = (req, res) => {
+  const { id } = req.params
+
+  return db.Employee
+    .destroy({
+      where: { emp_no: id }
+    })
+    .then(() =>
+      res
+        .status(204)
+        .json({})
+    )
+
+}
+
 module.exports = {
   getEmployee,
+  deleteEmployee,
 }

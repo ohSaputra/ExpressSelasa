@@ -13,4 +13,8 @@ router
   .route('/employee')
   .get(ctrlEmployee.getEmployee)
 
+router
+  .route('/employee/:id')
+  .delete(ctrlEmployee.deleteEmployee)
+
 module.exports = router
