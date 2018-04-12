@@ -12,5 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     hire_date: DataTypes.DATE,
     createdAt: DataTypes.DATE,
     updatedAt: DataTypes.DATE,
+  }, {
+    freezeTableName: true,
+    paranoid: true,
   })
 }
