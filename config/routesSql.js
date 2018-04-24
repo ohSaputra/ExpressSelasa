@@ -6,7 +6,7 @@ const ctrlEmployee = require('../app/controllers/myEmployee.controllers')
 const ctrlUser = require('../app/controllers/myUser.controllers')
 
 // routing
-roujhter
+router
   .get('/', (req, res) => res.send('Hello world'))
 
 // new routing

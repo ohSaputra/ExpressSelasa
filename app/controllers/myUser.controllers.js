@@ -47,7 +47,7 @@ const loginUser = (req, res) => {
 
         const token = jwt.sign({
           username
-        }, `som3_s3cr3t`, { expiresIn: 60 * 2 })
+        }, `som3_s3cr3t`, { expiresIn: 60 * 60 })
 
         console.log(`token: ${token}`)
 
