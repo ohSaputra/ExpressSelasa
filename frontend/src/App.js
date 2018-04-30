@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+
+import EmployeeList from './App/components/EmployeeList'
+import logo from './logo.svg'
+import './App.css'
 
 class App extends Component {
 
@@ -20,11 +22,7 @@ class App extends Component {
         </p>
         <ul>
           <li>Employee names: </li>
-          {
-            this.state.result && this.state.result.map(item => (
-              <li>{`${item.first_name} ${item.last_name}`}</li>
-            ))
-          }
+          { this._renderEmployee() }
         </ul>
       </div>
     );
@@ -37,14 +35,31 @@ class App extends Component {
   _getEmployee = () => {
     const options = {
       headers: {
-        'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFuamF5IiwiaWF0IjoxNTI0NTc5MzgwLCJleHAiOjE1MjQ1ODI5ODB9.9XJZ2hdJ8VcjVN35ZhmK-kA3ZpLWDwKqMviMLK_eTfs'
+        'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhlbmRyYSIsImlhdCI6MTUyNTA5ODk4NiwiZXhwIjoxNTI1MTAyNTg2fQ.EiEiLMvmi3O5KKDy6phNIpi5BwygbBhGZCxNB98QHZw'
       }
     }
 
-    fetch('/api/employee', options)
+    fetch(' /api/employee', options)
       .then(res => res.json())
       .then(result => this.setState({ result }))
+      .then(() => console.log('finish promise'))
       .catch(e => console.log(e))
+
+    console.log('hello after fetch')
+  }
+
+  _renderEmployee = () => {
+    const { result } = this.state
+    if (result)
+      return result.map(item => (
+        <EmployeeList
+          key = {item.emp_no}
+          first = {item.first_name}
+          last = {item.last_name}
+        />
+      ))
+    else
+      return
   }
 }
 
